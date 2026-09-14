@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gulmi Easy Travel - Premium EV Hiace Booking</title>
     
-    <!-- Browser Tab Logo (Favicon) -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Browser Tab Logo (.jpg) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
 
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -28,13 +28,12 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Side Background Images & Styling */
+        /* Background JPG Image */
         body {
             background-color: var(--light-bg);
-            /* Side background overlay & image */
             background-image: 
                 linear-gradient(to right, rgba(26, 54, 93, 0.85), rgba(0, 128, 55, 0.75)),
-                url('bg.jpg'); /* Custom image file name 'bg.jpg' */
+                url('bg.jpg'); 
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
@@ -60,10 +59,10 @@
         .site-logo {
             width: 85px;
             height: 85px;
-            object-fit: contain;
+            object-fit: cover;
             background: #ffffff;
             border-radius: 50%;
-            padding: 6px;
+            padding: 4px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             margin-bottom: 12px;
         }
@@ -219,7 +218,8 @@
 <body>
 
     <div class="hero">
-        <img src="logo.png" alt="Gulmi Easy Travel Logo" class="site-logo" onerror="this.style.display='none'">
+        <!-- Logo JPG -->
+        <img src="logo.jpg" alt="Gulmi Easy Travel Logo" class="site-logo" onerror="this.style.display='none'">
         <br>
         <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
         <h1>Gulmi Easy Travel</h1>
@@ -274,9 +274,10 @@
                     <strong id="totalFare">Rs. 2,000</strong>
                 </div>
 
+                <!-- QR JPG -->
                 <div class="qr-card">
                     <p><i class="fa-solid fa-qrcode"></i> Scan to Pay (eSewa / Khalti)</p>
-                    <img src="qr.png" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/170?text=Upload+qr.png'">
+                    <img src="qr.jpg" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/170?text=Upload+qr.jpg'">
                 </div>
 
                 <button type="button" class="btn-submit" onclick="sendToWhatsApp()">
