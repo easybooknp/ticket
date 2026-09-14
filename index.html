@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gulmi Easy Travel - Premium EV Hiace Booking</title>
+    
+    <!-- Browser Tab Logo (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,7 +16,7 @@
         :root {
             --primary: #008037;
             --secondary: #1a365d;
-            --light-bg: #f8fafc;
+            --light-bg: #f0f4f8;
             --white: #ffffff;
             --text: #2d3748;
         }
@@ -24,20 +28,44 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Side Background Images & Styling */
         body {
             background-color: var(--light-bg);
+            /* Side background overlay & image */
+            background-image: 
+                linear-gradient(to right, rgba(26, 54, 93, 0.85), rgba(0, 128, 55, 0.75)),
+                url('bg.jpg'); /* Custom image file name 'bg.jpg' */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
             color: var(--text);
             padding-bottom: 40px;
+            min-height: 100vh;
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--secondary) 0%, #0d2137 100%);
+            background: rgba(13, 33, 55, 0.95);
+            backdrop-filter: blur(5px);
             color: var(--white);
             text-align: center;
-            padding: 40px 20px;
+            padding: 35px 20px 45px 20px;
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .site-logo {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            margin-bottom: 12px;
         }
 
         .hero h1 {
@@ -59,20 +87,21 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .container {
             max-width: 480px;
-            margin: -20px auto 0 auto;
+            margin: -25px auto 0 auto;
             padding: 0 15px;
         }
 
         .card {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 25px 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .form-group {
@@ -95,12 +124,12 @@
         .form-control {
             width: 100%;
             padding: 12px 14px;
-            border: 1.5px solid #e2e8f0;
+            border: 1.5px solid #cbd5e0;
             border-radius: 10px;
             font-size: 14px;
             outline: none;
             transition: 0.3s;
-            background-color: #fdfdfd;
+            background-color: #ffffff;
         }
 
         .form-control:focus {
@@ -182,13 +211,16 @@
             text-align: center;
             margin-top: 25px;
             font-size: 12px;
-            color: #718096;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
     </style>
 </head>
 <body>
 
     <div class="hero">
+        <img src="logo.png" alt="Gulmi Easy Travel Logo" class="site-logo" onerror="this.style.display='none'">
+        <br>
         <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
         <h1>Gulmi Easy Travel</h1>
         <p>Gulmi ⇄ Kathmandu Direct Service</p>
