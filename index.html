@@ -12,7 +12,6 @@
         :root {
             --primary: #008037;
             --secondary: #1a365d;
-            --accent: #ff9f43;
             --light-bg: #f8fafc;
             --white: #ffffff;
             --text: #2d3748;
@@ -31,7 +30,6 @@
             padding-bottom: 40px;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--secondary) 0%, #0d2137 100%);
             color: var(--white);
@@ -64,14 +62,12 @@
             margin-bottom: 10px;
         }
 
-        /* Container */
         .container {
             max-width: 480px;
             margin: -20px auto 0 auto;
             padding: 0 15px;
         }
 
-        /* Card */
         .card {
             background: var(--white);
             border-radius: 16px;
@@ -112,7 +108,6 @@
             box-shadow: 0 0 0 3px rgba(0, 128, 55, 0.15);
         }
 
-        /* Fare Box */
         .fare-box {
             background-color: #f0fdf4;
             border: 1px dashed var(--primary);
@@ -135,7 +130,6 @@
             color: var(--primary);
         }
 
-        /* QR Section */
         .qr-card {
             text-align: center;
             background: #fafafa;
@@ -162,7 +156,6 @@
             padding: 5px;
         }
 
-        /* Submit Button */
         .btn-submit {
             width: 100%;
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
@@ -198,7 +191,7 @@
     <div class="hero">
         <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
         <h1>Gulmi Easy Travel</h1>
-        <p>Gulmi - Kathmandu - Butwal Direct Service</p>
+        <p>Gulmi ⇄ Kathmandu Direct Service</p>
     </div>
 
     <div class="container">
@@ -218,10 +211,8 @@
                 <div class="form-group">
                     <label><i class="fa-solid fa-route"></i> Select Route</label>
                     <select id="route" class="form-control" onchange="calculateFare()">
-                        <option value="Gulmi to Kathmandu" data-price="1300">Gulmi ➔ Kathmandu (Rs. 1,300)</option>
-                        <option value="Kathmandu to Gulmi" data-price="1300">Kathmandu ➔ Gulmi (Rs. 1,300)</option>
-                        <option value="Gulmi to Butwal" data-price="600">Gulmi ➔ Butwal (Rs. 600)</option>
-                        <option value="Butwal to Gulmi" data-price="600">Butwal ➔ Gulmi (Rs. 600)</option>
+                        <option value="Gulmi to Kathmandu" data-price="2000">Gulmi ➔ Kathmandu (Rs. 2,000)</option>
+                        <option value="Kathmandu to Gulmi" data-price="2000">Kathmandu ➔ Gulmi (Rs. 2,000)</option>
                     </select>
                 </div>
 
@@ -243,12 +234,12 @@
 
                 <div class="form-group">
                     <label><i class="fa-solid fa-location-dot"></i> Boarding / Pickup Point</label>
-                    <input type="text" id="pickup" class="form-control" placeholder="Eg: Tamghas, Simeltari, Gongabu" required>
+                    <input type="text" id="pickup" class="form-control" placeholder="Eg: Tamghas, Simeltari, Kalanki" required>
                 </div>
 
                 <div class="fare-box">
                     <span>Estimated Total Fare:</span>
-                    <strong id="totalFare">Rs. 1,300</strong>
+                    <strong id="totalFare">Rs. 2,000</strong>
                 </div>
 
                 <div class="qr-card">
