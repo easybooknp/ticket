@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulmi to Kathmandu EV Hiace Booking</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1e3c72; }
+        label { font-weight: bold; margin-top: 10px; display: block; }
+        input, select, button { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { background-color: #27ae60; color: white; font-weight: bold; margin-top: 20px; cursor: pointer; border: none; }
+        button:hover { background-color: #219150; }
+        .qr-section { text-align: center; margin-top: 15px; }
+        .qr-section img { width: 180px; border: 1px solid #ddd; padding: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Gulmi - Kathmandu EV Hiace</h2>
+    <form id="bookingForm">
+        <label>Passenger Name:</label>
+        <input type="text" id="name" required placeholder="Tapaiko Naam">
+
+        <label>Phone / WhatsApp Number:</label>
+        <input type="tel" id="phone" required placeholder="98XXXXXXXX">
+
+        <label>Travel Date:</label>
+        <input type="date" id="date" required>
+
+        <label>Number of Seats:</label>
+        <select id="seats">
+            <option value="1">1 Seat</option>
+            <option value="2">2 Seats</option>
+            <option value="3">3 Seats</option>
+            <option value="4">4 Seats</option>
+        </select>
+
+        <label>Pickup Point (Gulmi):</label>
+        <input type="text" id="pickup" placeholder="Eg: Tamghas, Simeltari" required>
+
+        <div class="qr-section">
+            <p><strong>Payment (eSewa / Khalti):</strong></p>
+            <img src="https://via.placeholder.com/180?text=eSewa+QR+Code" alt="eSewa QR">
+        </div>
+
+        <button type="button" onclick="sendToWhatsApp()">Book Ticket via WhatsApp</button>
+    </form>
+</div>
+
+<script>
+    function sendToWhatsApp() {
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var date = document.getElementById('date').value;
+        var seats = document.getElementById('seats').value;
+        var pickup = document.getElementById('pickup').value;
+
+        if(!name || !phone || !date || !pickup) {
+            alert("Kripaya sabai bibaran bharnuhola!");
+            return;
+        }
+
+        // Tapaiko WhatsApp Number update garieko chha
+        var myPhoneNumber = "9779749895042"; 
+
+        var message = "Hello, maile EV Hiace Ticket book garna chahanchu:%0A%0A" +
+                      "*Name:* " + name + "%0A" +
+                      "*Phone:* " + phone + "%0A" +
+                      "*Route:* Gulmi to Kathmandu%0A" +
+                      "*Date:* " + date + "%0A" +
+                      "*Seats:* " + seats + "%0A" +
+                      "*Pickup Point:* " + pickup + "%0A%0A" +
+                      "Maile Payment QR bata tirera screenshot pathaudai chu.";
+
+        var whatsappUrl = "https://wa.me/" + myPhoneNumber + "?text=" + message;
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
