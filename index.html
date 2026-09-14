@@ -293,14 +293,56 @@
         </div>
     </div>
 
-   <script>
-    // 1. Minimum 2 days advance date lock logic
+<script>
+    var scriptURL = "PASTE_YOUR_NEW_COPIED_WEB_APP_URL_HERE";
+
+    // 1. Advance date lock logic
     var today = new Date();
     today.setDate(today.getDate() + 2);
     var minDate = today.toISOString().split('T')[0];
     var datePicker = document.getElementById('date');
     datePicker.setAttribute('min', minDate);
     datePicker.value = minDate;
+
+    // Date wa Route change huda seats check garne event listener
+    datePicker.addEventListener('change', checkAvailability);
+    document.getElementById('route').addEventListener('change', checkAvailability);
+
+    // Initial check on page load
+    window.onload = function() {
+        checkAvailability();
+    };
+
+    // Live backend check function
+    function checkAvailability() {
+        var selectedDate = document.getElementById('date').value;
+        var selectedRoute = document.getElementById('route').value;
+        var noticeDiv = document.getElementById('availabilityNotice');
+        var submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button');
+
+        noticeDiv.innerText = "Seats availability checking...";
+        noticeDiv.style.color = "#666";
+
+        fetch(scriptURL + "?date=" + encodeURIComponent(selectedDate) + "&route=" + encodeURIComponent(selectedRoute))
+            .then(res => res.json())
+            .then(data => {
+                var available = data.availableSeats;
+                if (available <= 0) {
+                    noticeDiv.innerText = "❌ SOLD OUT! Tyo date ma kunai pani seat khali chhaina.";
+                    noticeDiv.style.color = "red";
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = "0.5";
+                } else {
+                    noticeDiv.innerText = "✅ Availability: " + available + " seats baki chhan!";
+                    noticeDiv.style.color = "green";
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                }
+            })
+            .catch(err => {
+                noticeDiv.innerText = "";
+            });
+    }
 
     function calculateFare() {
         var routeSelect = document.getElementById('route');
@@ -326,10 +368,7 @@
             return;
         }
 
-        // 2. Google Sheets Auto-Entry Code
-        // Web app URL lai tala ka double quotes ("") bhitra PASTE garnuhos:
-        var scriptURL = "https://script.google.com/macros/s/AKfycbz1ySjGyxGuzlwDv81BVehDw8yekckwgY3lx5qTnbl-IGMqU7WMIjlylvzs6WzKewM/exec";
-
+        // Google Sheets Auto-Entry Request
         fetch(scriptURL + "?name=" + encodeURIComponent(name) +
               "&phone=" + encodeURIComponent(phone) +
               "&route=" + encodeURIComponent(route) +
@@ -340,7 +379,7 @@
         .then(response => console.log('Auto Entry Success!'))
         .catch(error => console.error('Error!', error.message));
 
-        // 3. WhatsApp Redirect Code
+        // WhatsApp Redirect
         var targetNumber = "9779749895042";
         var message = "*GULMI EASY TRAVEL - TICKET BOOKING*%0A" +
                       "━━━━━━━━━━━━━━━━━━%0A" +
@@ -357,6 +396,6 @@
         var whatsappUrl = "https://wa.me/" + targetNumber + "?text=" + message;
         window.open(whatsappUrl, '_blank');
     }
-    </script>
+</script>
 </body>
 </html>
