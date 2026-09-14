@@ -27,6 +27,29 @@
             padding: 0;
             font-family: 'Poppins', sans-serif;
         }
+        /* Button Disabled Status & Floating Call Button */
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .call-float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  .call-float-btn:hover {
+    background-color: #1ebc57;
+  }
 
         /* Background JPG Image */
         body {
@@ -281,9 +304,10 @@
                     <img src="qr.jpg" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/170?text=Upload+qr.jpg'">
                 </div>
 
-                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">
-                    <i class="fa-brands fa-whatsapp"></i> Confirm Booking via WhatsApp
-                </button>
+               <button type="submit" id="submitBtn" class="btn-submit">
+  <span id="btnText"><i class="fa-brands fa-whatsapp"></i> Confirm Booking via WhatsApp</span>
+  <span id="btnSpinner" style="display: none;">Processing... ⏳</span>
+</button>
 
             </form>
         </div>
@@ -398,5 +422,9 @@
         window.open(whatsappUrl, '_blank');
     }
 </script>
+    <!-- Direct Call Floating Button -->
+<a href="tel:+9779769817072" class="call-float-btn">
+  📞 Costumer Support
+</a>
 </body>
 </html>
