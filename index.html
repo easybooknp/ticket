@@ -293,50 +293,70 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('date').valueAsDate = new Date();
+   <script>
+    // 1. Minimum 2 days advance date lock logic
+    var today = new Date();
+    today.setDate(today.getDate() + 2);
+    var minDate = today.toISOString().split('T')[0];
+    var datePicker = document.getElementById('date');
+    datePicker.setAttribute('min', minDate);
+    datePicker.value = minDate;
 
-        function calculateFare() {
-            var routeSelect = document.getElementById('route');
-            var selectedOption = routeSelect.options[routeSelect.selectedIndex];
-            var pricePerSeat = parseInt(selectedOption.getAttribute('data-price'));
-            var seats = parseInt(document.getElementById('seats').value);
-            
-            var total = pricePerSeat * seats;
-            document.getElementById('totalFare').innerText = "Rs. " + total.toLocaleString();
+    function calculateFare() {
+        var routeSelect = document.getElementById('route');
+        var selectedOption = routeSelect.options[routeSelect.selectedIndex];
+        var pricePerSeat = parseInt(selectedOption.getAttribute('data-price'));
+        var seats = parseInt(document.getElementById('seats').value);
+        
+        var total = pricePerSeat * seats;
+        document.getElementById('totalFare').innerText = "Rs. " + total.toLocaleString();
+    }
+
+    function sendToWhatsApp() {
+        var name = document.getElementById('name').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var route = document.getElementById('route').value;
+        var date = document.getElementById('date').value;
+        var seats = document.getElementById('seats').value;
+        var pickup = document.getElementById('pickup').value.trim();
+        var totalFare = document.getElementById('totalFare').innerText;
+
+        if(!name || !phone || !pickup || !date) {
+            alert("Kripaya sabai bibaran bharnuhola!");
+            return;
         }
 
-        function sendToWhatsApp() {
-            var name = document.getElementById('name').value.trim();
-            var phone = document.getElementById('phone').value.trim();
-            var route = document.getElementById('route').value;
-            var date = document.getElementById('date').value;
-            var seats = document.getElementById('seats').value;
-            var pickup = document.getElementById('pickup').value.trim();
-            var totalFare = document.getElementById('totalFare').innerText;
+        // 2. Google Sheets Auto-Entry Code
+        // Web app URL lai tala ka double quotes ("") bhitra PASTE garnuhos:
+        var scriptURL = "PASTE_YOUR_COPIED_WEB_APP_URL_HERE";
 
-            if(!name || !phone || !pickup || !date) {
-                alert("Kripaya sabai bibaran bharnuhola!");
-                return;
-            }
+        fetch(scriptURL + "?name=" + encodeURIComponent(name) +
+              "&phone=" + encodeURIComponent(phone) +
+              "&route=" + encodeURIComponent(route) +
+              "&date=" + encodeURIComponent(date) +
+              "&seats=" + encodeURIComponent(seats) +
+              "&pickup=" + encodeURIComponent(pickup) +
+              "&totalFare=" + encodeURIComponent(totalFare), { method: 'POST' })
+        .then(response => console.log('Auto Entry Success!'))
+        .catch(error => console.error('Error!', error.message));
 
-            var targetNumber = "9779749895042";
+        // 3. WhatsApp Redirect Code
+        var targetNumber = "9779749895042";
+        var message = "*GULMI EASY TRAVEL - TICKET BOOKING*%0A" +
+                      "━━━━━━━━━━━━━━━━━━%0A" +
+                      "👤 *Passenger Name:* " + name + "%0A" +
+                      "📞 *Phone Number:* " + phone + "%0A" +
+                      "🚌 *Route:* " + route + "%0A" +
+                      "📅 *Travel Date:* " + date + "%0A" +
+                      "💺 *Seats:* " + seats + "%0A" +
+                      "📍 *Pickup Location:* " + pickup + "%0A" +
+                      "💰 *Total Amount:* " + totalFare + "%0A" +
+                      "━━━━━━━━━━━━━━━━━━%0A" +
+                      "Maile Payment QR code ma tirera screenshot pathaudai chu.";
 
-            var message = "*GULMI EASY TRAVEL - TICKET BOOKING*%0A" +
-                          "━━━━━━━━━━━━━━━━━━%0A" +
-                          "👤 *Passenger Name:* " + name + "%0A" +
-                          "📞 *Phone Number:* " + phone + "%0A" +
-                          "🚌 *Route:* " + route + "%0A" +
-                          "📅 *Travel Date:* " + date + "%0A" +
-                          "💺 *Seats:* " + seats + "%0A" +
-                          "📍 *Pickup Location:* " + pickup + "%0A" +
-                          "💰 *Total Amount:* " + totalFare + "%0A" +
-                          "━━━━━━━━━━━━━━━━━━%0A" +
-                          "Maile Payment QR code ma tirera screenshot pathaudai chu.";
-
-            var whatsappUrl = "https://wa.me/" + targetNumber + "?text=" + message;
-            window.open(whatsappUrl, '_blank');
-        }
+        var whatsappUrl = "https://wa.me/" + targetNumber + "?text=" + message;
+        window.open(whatsappUrl, '_blank');
+    }
     </script>
 </body>
 </html>
