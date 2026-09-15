@@ -1,424 +1,430 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gulmi Easy Travel - Premium EV Hiace Booking</title>
-    
-    <!-- Browser Tab Logo (.jpg) -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulmi Easy Travel - Premium EV Hiace Booking</title>
+    
+    <!-- Browser Tab Logo (.jpg) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
 
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #008037;
-            --secondary: #1a365d;
-            --light-bg: #f0f4f8;
-            --white: #ffffff;
-            --text: #2d3748;
-        }
+    <style>
+        :root {
+            --primary: #008037;
+            --secondary: #1a365d;
+            --light-bg: #f0f4f8;
+            --white: #ffffff;
+            --text: #2d3748;
+        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        /* Button Disabled Status & Floating Call Button */
-  .btn-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Button Disabled Status & Floating Call Button */
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 
-  .call-float-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-  }
-  .call-float-btn:hover {
-    background-color: #1ebc57;
-  }
+  .call-float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  .call-float-btn:hover {
+    background-color: #1ebc57;
+  }
 
-        /* Background JPG Image */
-        body {
-            background-color: var(--light-bg);
-            background-image: 
-                linear-gradient(to right, rgba(26, 54, 93, 0.85), rgba(0, 128, 55, 0.75)),
-                url('bg.jpg'); 
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            color: var(--text);
-            padding-bottom: 40px;
-            min-height: 100vh;
-        }
+        /* Background JPG Image */
+        body {
+            background-color: var(--light-bg);
+            background-image: 
+                linear-gradient(to right, rgba(26, 54, 93, 0.85), rgba(0, 128, 55, 0.75)),
+                url('bg.jpg'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: var(--text);
+            padding-bottom: 40px;
+            min-height: 100vh;
+        }
 
-        .hero {
-            background: rgba(13, 33, 55, 0.95);
-            backdrop-filter: blur(5px);
-            color: var(--white);
-            text-align: center;
-            padding: 35px 20px 45px 20px;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .hero {
+            background: rgba(13, 33, 55, 0.95);
+            backdrop-filter: blur(5px);
+            color: var(--white);
+            text-align: center;
+            padding: 35px 20px 45px 20px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-        .site-logo {
-            width: 85px;
-            height: 85px;
-            object-fit: cover;
-            background: #ffffff;
-            border-radius: 50%;
-            padding: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            margin-bottom: 12px;
-        }
+        .site-logo {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            margin-bottom: 12px;
+        }
 
-        .hero h1 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
+        .hero h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
 
-        .hero p {
-            font-size: 14px;
-            color: #cbd5e0;
-        }
+        .hero p {
+            font-size: 14px;
+            color: #cbd5e0;
+        }
 
-        .badge-ev {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
+        .badge-ev {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
 
-        .container {
-            max-width: 480px;
-            margin: -25px auto 0 auto;
-            padding: 0 15px;
-        }
+        .container {
+            max-width: 480px;
+            margin: -25px auto 0 auto;
+            padding: 0 15px;
+        }
 
-        .card {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 25px 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
 
-        .form-group {
-            margin-bottom: 18px;
-        }
+        .form-group {
+            margin-bottom: 18px;
+        }
 
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 6px;
-        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
 
-        .form-group label i {
-            color: var(--primary);
-            margin-right: 5px;
-        }
+        .form-group label i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
 
-        .form-control {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1.5px solid #cbd5e0;
-            border-radius: 10px;
-            font-size: 14px;
-            outline: none;
-            transition: 0.3s;
-            background-color: #ffffff;
-        }
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #cbd5e0;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            background-color: #ffffff;
+        }
 
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 128, 55, 0.15);
-        }
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 55, 0.15);
+        }
 
-        .fare-box {
-            background-color: #f0fdf4;
-            border: 1px dashed var(--primary);
-            padding: 12px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+        .fare-box {
+            background-color: #f0fdf4;
+            border: 1px dashed var(--primary);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-        .fare-box span {
-            font-size: 14px;
-            color: var(--secondary);
-            font-weight: 600;
-        }
+        .fare-box span {
+            font-size: 14px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
 
-        .fare-box strong {
-            font-size: 18px;
-            color: var(--primary);
-        }
+        .fare-box strong {
+            font-size: 18px;
+            color: var(--primary);
+        }
 
-        .qr-card {
-            text-align: center;
-            background: #fafafa;
-            border: 1.5px solid #edf2f7;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
+        .qr-card {
+            text-align: center;
+            background: #fafafa;
+            border: 1.5px solid #edf2f7;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
 
-        .qr-card p {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 8px;
-        }
+        .qr-card p {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
 
-        .qr-card img {
-            width: 170px;
-            height: 170px;
-            object-fit: contain;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            background: #fff;
-            padding: 5px;
-        }
+        .qr-card img {
+            width: 170px;
+            height: 170px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 5px;
+        }
 
-        .btn-submit {
-            width: 100%;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: transform 0.2s;
-        }
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
 
-        .btn-submit:hover {
-            transform: translateY(-2px);
-        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
 
-        .footer {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 12px;
-            color: #ffffff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-        }
-    </style>
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+    </style>
 </head>
 <body>
 
-    <div class="hero">
-        <!-- Logo JPG -->
-        <img src="logo.jpg" alt="Gulmi Easy Travel Logo" class="site-logo" onerror="this.style.display='none'">
-        <br>
-        <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
-        <h1>Gulmi Easy Travel</h1>
-        <p>Gulmi ⇄ Kathmandu Direct Service</p>
-    </div>
+    <div class="hero">
+        <!-- Logo JPG -->
+        <img src="logo.jpg" alt="Gulmi Easy Travel Logo" class="site-logo" onerror="this.style.display='none'">
+        <br>
+        <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
+        <h1>Gulmi Easy Travel</h1>
+        <p>Gulmi ⇄ Kathmandu Direct Service</p>
+    </div>
 
-    <div class="container">
-        <div class="card">
-            <form id="bookingForm">
-                
-                <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> Full Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Tapaiko Naam" required>
-                </div>
+    <div class="container">
+        <div class="card">
+            <form id="bookingForm">
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user"></i> Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Tapaiko Naam" required>
+                </div>
 
-                <div class="form-group">
-                    <label><i class="fa-solid fa-phone"></i> Mobile / WhatsApp Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="98XXXXXXXX" required>
-                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-phone"></i> Mobile / WhatsApp Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="98XXXXXXXX" required>
+                </div>
 
-                <div class="form-group">
-                    <label><i class="fa-solid fa-route"></i> Select Route</label>
-                    <select id="route" class="form-control" onchange="calculateFare()">
-                        <option value="Gulmi to Kathmandu" data-price="2000">Gulmi ➔ Kathmandu (Rs. 2,000)</option>
-                        <option value="Kathmandu to Gulmi" data-price="2000">Kathmandu ➔ Gulmi (Rs. 2,000)</option>
-                    </select>
-                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-route"></i> Select Route</label>
+                    <select id="route" class="form-control" onchange="calculateFare()">
+                        <option value="Gulmi to Kathmandu" data-price="2000">Gulmi ➔ Kathmandu (Rs. 2,000)</option>
+                        <option value="Kathmandu to Gulmi" data-price="2000">Kathmandu ➔ Gulmi (Rs. 2,000)</option>
+                    </select>
+                </div>
 
-                <div class="form-group">
-                    <label><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
-                    <input type="date" id="date" class="form-control" required>
-                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
 
-                <div class="form-group">
-                    <label><i class="fa-solid fa-chair"></i> Number of Seats</label>
-                    <select id="seats" class="form-control" onchange="calculateFare()">
-                        <option value="1">1 Seat</option>
-                        <option value="2">2 Seats</option>
-                        <option value="3">3 Seats</option>
-                        <option value="4">4 Seats</option>
-                        <option value="5">5 Seats</option>
-                    </select>
-                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-chair"></i> Number of Seats</label>
+                    <select id="seats" class="form-control" onchange="calculateFare()">
+                        <option value="1">1 Seat</option>
+                        <option value="2">2 Seats</option>
+                        <option value="3">3 Seats</option>
+                        <option value="4">4 Seats</option>
+                        <option value="5">5 Seats</option>
+                    </select>
+                </div>
 <!-- Seat Availability Indicator -->
 <div id="availabilityNotice" style="margin-top: 8px; font-weight: bold; font-size: 14px;"></div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-location-dot"></i> Boarding / Pickup Point</label>
-                    <input type="text" id="pickup" class="form-control" placeholder="Eg: Tamghas, Simeltari, Kalanki" required>
-                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-location-dot"></i> Boarding / Pickup Point</label>
+                    <input type="text" id="pickup" class="form-control" placeholder="Eg: Tamghas, Simeltari, Kalanki" required>
+                </div>
 
-                <div class="fare-box">
-                    <span>Estimated Total Fare:</span>
-                    <strong id="totalFare">Rs. 2,000</strong>
-                </div>
+                <div class="fare-box">
+                    <span>Estimated Total Fare:</span>
+                    <strong id="totalFare">Rs. 2,000</strong>
+                </div>
 
-                <!-- QR JPG -->
-                <div class="qr-card">
-                    <p><i class="fa-solid fa-qrcode"></i> Scan to Pay (eSewa / Khalti)</p>
-                    <img src="qr.jpg" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/170?text=Upload+qr.jpg'">
-                </div>
+                <!-- QR JPG -->
+                <div class="qr-card">
+                    <p><i class="fa-solid fa-qrcode"></i> Scan to Pay (eSewa / Khalti)</p>
+                    <img src="qr.jpg" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/170?text=Upload+qr.jpg'">
+                </div>
 
-               <button type="submit" id="submitBtn" class="btn-submit" onclick="sendToWhatsApp()">
-  <span id="btnText"><i class="fa-brands fa-whatsapp"></i> Confirm Booking via WhatsApp</span>
-  <span id="btnSpinner" style="display: none;">Processing... ⏳</span>
+               <button type="submit" id="submitBtn" class="btn-submit" onclick="sendToWhatsApp()">
+  <span id="btnText"><i class="fa-brands fa-whatsapp"></i> Confirm Booking via WhatsApp</span>
+  <span id="btnSpinner" style="display: none;">Processing... ⏳</span>
 </button>
 
-            </form>
-        </div>
+            </form>
+        </div>
 
-        <div class="footer">
-            <p>Direct Booking Helpline: <strong>9749895042</strong></p>
-            <p>&copy; Gulmi Easy Travel EV Service. All rights reserved.</p>
-        </div>
-    </div>
+        <div class="footer">
+            <p>Direct Booking Helpline: <strong>9749895042</strong></p>
+            <p>&copy; Gulmi Easy Travel EV Service. All rights reserved.</p>
+        </div>
+    </div>
 
 <script>
-    var scriptURL = "https://script.google.com/macros/s/AKfycbwL5EVbkfapJ_Qii-mfzgXxtPz4_-1yrfQTpyb9BYJFBVNKx9e_VP8RXVcW_f352sQC/exec";
+    var scriptURL = "https://script.google.com/macros/s/AKfycbwL5EVbkfapJ_Qii-mfzgXxtPz4_-1yrfQTpyb9BYJFBVNKx9e_VP8RXVcW_f352sQC/exec";
 
-  // 1. Advance date lock logic (Aaja ra Bholi kholeko)
-var today = new Date();
-var minDate = today.toISOString().split('T')[0];
-var datePicker = document.getElementById('date');
-datePicker.setAttribute('min', minDate);
+    // 1. Advance date lock logic
+    var today = new Date();
+    today.setDate(today.getDate() + 1);
+    var minDate = today.toISOString().split('T')[0];
+    var datePicker = document.getElementById('date');
+    datePicker.setAttribute('min', minDate);
+    datePicker.value = minDate;
 
-// Default value: Bholi (16 Sept)
-var tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-datePicker.value = tomorrow.toISOString().split('T')[0];
+    // Date wa Route change huda seats check garne event listener
+    datePicker.addEventListener('change', checkAvailability);
+    document.getElementById('route').addEventListener('change', checkAvailability);
 
-    // Live backend check function
-    function checkAvailability() {
-        var selectedDate = document.getElementById('date').value;
-        var selectedRoute = document.getElementById('route').value;
-        var noticeDiv = document.getElementById('availabilityNotice');
-        var submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button');
+    // Initial check on page load
+    window.onload = function() {
+        checkAvailability();
+    };
 
-        noticeDiv.innerText = "Seats availability checking...";
-        noticeDiv.style.color = "#666";
+    // Live backend check function
+    function checkAvailability() {
+        var selectedDate = document.getElementById('date').value;
+        var selectedRoute = document.getElementById('route').value;
+        var noticeDiv = document.getElementById('availabilityNotice');
+        var submitBtn = document.querySelector('button[type="submit"]') || document.querySelector('button');
 
-        fetch(scriptURL + "?date=" + encodeURIComponent(selectedDate) + "&route=" + encodeURIComponent(selectedRoute))
-            .then(res => res.json())
-            .then(data => {
-                var available = data.availableSeats;
-                if (available <= 0) {
-                    noticeDiv.innerText = "❌ SOLD OUT! Tyo date ma kunai pani seat khali chhaina.";
-                    noticeDiv.style.color = "red";
-                    submitBtn.disabled = true;
-                    submitBtn.style.opacity = "0.5";
-                } else {
-                    noticeDiv.innerText = "✅ Availability: " + available + " seats baki chhan!";
-                    noticeDiv.style.color = "green";
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = "1";
-                }
-            })
-            .catch(err => {
-                noticeDiv.innerText = "";
-            });
-    }
+        noticeDiv.innerText = "Seats availability checking...";
+        noticeDiv.style.color = "#666";
 
-    function calculateFare() {
-        var routeSelect = document.getElementById('route');
-        var selectedOption = routeSelect.options[routeSelect.selectedIndex];
-        var pricePerSeat = parseInt(selectedOption.getAttribute('data-price'));
-        var seats = parseInt(document.getElementById('seats').value);
-        
-        var total = pricePerSeat * seats;
-        document.getElementById('totalFare').innerText = "Rs. " + total.toLocaleString();
-    }
+        fetch(scriptURL + "?date=" + encodeURIComponent(selectedDate) + "&route=" + encodeURIComponent(selectedRoute))
+            .then(res => res.json())
+            .then(data => {
+                var available = data.availableSeats;
+                if (available <= 0) {
+                    noticeDiv.innerText = "❌ SOLD OUT! Tyo date ma kunai pani seat khali chhaina.";
+                    noticeDiv.style.color = "red";
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = "0.5";
+                } else {
+                    noticeDiv.innerText = "✅ Availability: " + available + " seats baki chhan!";
+                    noticeDiv.style.color = "green";
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                }
+            })
+            .catch(err => {
+                noticeDiv.innerText = "";
+            });
+    }
 
-    function sendToWhatsApp() {
-        var name = document.getElementById('name').value.trim();
-        var phone = document.getElementById('phone').value.trim();
-        var route = document.getElementById('route').value;
-        var date = document.getElementById('date').value;
-        var seats = document.getElementById('seats').value;
-        var pickup = document.getElementById('pickup').value.trim();
-        var totalFare = document.getElementById('totalFare').innerText;
+    function calculateFare() {
+        var routeSelect = document.getElementById('route');
+        var selectedOption = routeSelect.options[routeSelect.selectedIndex];
+        var pricePerSeat = parseInt(selectedOption.getAttribute('data-price'));
+        var seats = parseInt(document.getElementById('seats').value);
+        
+        var total = pricePerSeat * seats;
+        document.getElementById('totalFare').innerText = "Rs. " + total.toLocaleString();
+    }
 
-        if(!name || !phone || !pickup || !date) {
-            alert("Kripaya sabai bibaran bharnuhola!");
-            return;
-        }
+    function sendToWhatsApp() {
+        var name = document.getElementById('name').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var route = document.getElementById('route').value;
+        var date = document.getElementById('date').value;
+        var seats = document.getElementById('seats').value;
+        var pickup = document.getElementById('pickup').value.trim();
+        var totalFare = document.getElementById('totalFare').innerText;
 
-        // Google Sheets Auto-Entry Request
-        fetch(scriptURL + "?name=" + encodeURIComponent(name) +
-              "&phone=" + encodeURIComponent(phone) +
-              "&route=" + encodeURIComponent(route) +
-              "&date=" + encodeURIComponent(date) +
-              "&seats=" + encodeURIComponent(seats) +
-              "&pickup=" + encodeURIComponent(pickup) +
-              "&totalFare=" + encodeURIComponent(totalFare), { method: 'POST' })
-        .then(response => console.log('Auto Entry Success!'))
-        .catch(error => console.error('Error!', error.message));
+        if(!name || !phone || !pickup || !date) {
+            alert("Kripaya sabai bibaran bharnuhola!");
+            return;
+        }
 
-        // WhatsApp Redirect
-        var targetNumber = "9779749895042";
-        var message = "*GULMI EASY TRAVEL - TICKET BOOKING*%0A" +
-                      "━━━━━━━━━━━━━━━━━━%0A" +
-                      "👤 *Passenger Name:* " + name + "%0A" +
-                      "📞 *Phone Number:* " + phone + "%0A" +
-                      "🚌 *Route:* " + route + "%0A" +
-                      "📅 *Travel Date:* " + date + "%0A" +
-                      "💺 *Seats:* " + seats + "%0A" +
-                      "📍 *Pickup Location:* " + pickup + "%0A" +
-                      "💰 *Total Amount:* " + totalFare + "%0A" +
-                      "━━━━━━━━━━━━━━━━━━%0A" +
-                      "Maile Payment QR code ma tirera screenshot pathaudai chu.";
+        // Google Sheets Auto-Entry Request
+        fetch(scriptURL + "?name=" + encodeURIComponent(name) +
+              "&phone=" + encodeURIComponent(phone) +
+              "&route=" + encodeURIComponent(route) +
+              "&date=" + encodeURIComponent(date) +
+              "&seats=" + encodeURIComponent(seats) +
+              "&pickup=" + encodeURIComponent(pickup) +
+              "&totalFare=" + encodeURIComponent(totalFare), { method: 'POST' })
+        .then(response => console.log('Auto Entry Success!'))
+        .catch(error => console.error('Error!', error.message));
 
-        var whatsappUrl = "https://wa.me/" + targetNumber + "?text=" + message;
-        window.open(whatsappUrl, '_blank');
-    }
+        // WhatsApp Redirect
+        var targetNumber = "9779749895042";
+        var message = "*GULMI EASY TRAVEL - TICKET BOOKING*%0A" +
+                      "━━━━━━━━━━━━━━━━━━%0A" +
+                      "👤 *Passenger Name:* " + name + "%0A" +
+                      "📞 *Phone Number:* " + phone + "%0A" +
+                      "🚌 *Route:* " + route + "%0A" +
+                      "📅 *Travel Date:* " + date + "%0A" +
+                      "💺 *Seats:* " + seats + "%0A" +
+                      "📍 *Pickup Location:* " + pickup + "%0A" +
+                      "💰 *Total Amount:* " + totalFare + "%0A" +
+                      "━━━━━━━━━━━━━━━━━━%0A" +
+                      "Maile Payment QR code ma tirera screenshot pathaudai chu.";
+
+        var whatsappUrl = "https://wa.me/" + targetNumber + "?text=" + message;
+        window.open(whatsappUrl, '_blank');
+    }
 </script>
-    <!-- Direct Call Floating Button -->
+    <!-- Direct Call Floating Button -->
 <a href="tel:+9779769817072" class="call-float-btn">
-  📞 Costumer Support
+  📞 Costumer Support
 </a>
 </body>
-</html>
+</html>                                                       yatithulo banaunu vanda yellai alikati sano twra same function sanga banauna mildaina
