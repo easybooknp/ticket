@@ -322,24 +322,15 @@
     var scriptURL = "https://script.google.com/macros/s/AKfycbwL5EVbkfapJ_Qii-mfzgXxtPz4_-1yrfQTpyb9BYJFBVNKx9e_VP8RXVcW_f352sQC/exec";
 
   // 1. Advance date lock logic (Aaja ra Bholi kholeko)
-    var today = new Date();
-    var minDate = today.toISOString().split('T')[0];
-    var datePicker = document.getElementById('date');
-    datePicker.setAttribute('min', minDate);
-    
-    // Default value: Bholi (16 Sept)
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    datePicker.value = tomorrow.toISOString().split('T')[0];
+var today = new Date();
+var minDate = today.toISOString().split('T')[0];
+var datePicker = document.getElementById('date');
+datePicker.setAttribute('min', minDate);
 
-    // Date wa Route change huda seats check garne event listener
-    datePicker.addEventListener('change', checkAvailability);
-    document.getElementById('route').addEventListener('change', checkAvailability);
-
-    // Initial check on page load
-    window.onload = function() {
-        checkAvailability();
-    };
+// Default value: Bholi (16 Sept)
+var tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+datePicker.value = tomorrow.toISOString().split('T')[0];
 
     // Live backend check function
     function checkAvailability() {
