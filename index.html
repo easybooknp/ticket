@@ -239,7 +239,10 @@
         }
 
         // Save to Google Sheet
-        fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { method: 'POST' });
+fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { 
+    method: 'POST',
+    mode: 'no-cors'
+});
 
         // Redirect to WhatsApp
         const msg = `*DHAN GC EASY TRAVEL BOOKING*%0A*GULMI YATAYAT*%0A━━━━━━━━━━━━━━━━━━%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🚌 *Route:* ${route}%0A📅 *Date:* ${date}%0A💺 *Seat No(s):* ${seats}%0A📍 *Pickup:* ${pickup}%0A💰 *Total:* ${totalFare}%0A━━━━━━━━━━━━━━━━━━%0AMaile payment QR tirera screenshot pathaudai chu.`;
