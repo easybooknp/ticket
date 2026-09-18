@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gulmi Easy Travel - Premium EV Hiace Booking</title>
+    <title>DHAN GC EASY TRAVEL BOOKING - GULMI YATAYAT</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,13 +22,14 @@
         .form-control { width: 100%; padding: 12px; border: 1.5px solid #cbd5e0; border-radius: 10px; font-size: 14px; outline: none; }
         .form-control:focus { border-color: var(--primary); }
         
-        /* Seat Layout Styling */
-        .seat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .seat-btn { padding: 10px; border: 1.5px solid #cbd5e0; background: #fff; border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; font-size: 13px; transition: all 0.2s; }
+        /* Seat Grid Styling */
+        .seat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .seat-btn { padding: 10px 5px; border: 1.5px solid #cbd5e0; background: #fff; border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; font-size: 12px; transition: all 0.2s; }
         .seat-btn:hover { border-color: var(--primary); color: var(--primary); }
         .seat-btn.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
-        .seat-btn.booked { background: #e2e8f0; color: #a0aec0; border-color: #cbd5e0; cursor: not-allowed; }
-        
+        .seat-btn.driver { grid-column: span 2; background:#f1f5f9; cursor:default; color:#64748b; border-color:#e2e8f0; }
+        .seat-btn.booked { background: #e2e8f0 !important; color: #a0aec0 !important; border-color: #cbd5e0 !important; cursor: not-allowed !important; pointer-events: none !important; }
+
         .fare-box { background: #f0fdf4; border: 1px dashed var(--primary); padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-weight: 600; }
         .qr-card { text-align: center; background: #fafafa; border: 1.5px solid #edf2f7; padding: 12px; border-radius: 12px; margin-bottom: 18px; }
         .qr-card img { width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd; background: #fff; padding: 4px; }
@@ -42,8 +43,8 @@
 
     <div class="hero">
         <img src="logo.jpg" alt="Logo" class="site-logo" onerror="this.style.display='none'"><br>
-        <span class="badge-ev"><i class="fa-solid fa-bolt"></i> 100% Electric Deluxe Hiace</span>
-        <h1>Gulmi Easy Travel</h1>
+        <span class="badge-ev"><i class="fa-solid fa-bolt"></i> GULMI YATAYAT</span>
+        <h1>DHAN GC EASY TRAVEL BOOKING</h1>
         <p>Gulmi ⇄ Kathmandu Direct Service</p>
     </div>
 
@@ -60,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label><i class="fa-solid fa-route"></i> Select Route</label>
-                    <select id="route" class="form-control" onchange="calculateFare()">
+                    <select id="route" class="form-control" onchange="checkAvailability()">
                         <option value="Gulmi to Kathmandu" data-price="2000">Gulmi ➔ Kathmandu (Rs. 2,000)</option>
                         <option value="Kathmandu to Gulmi" data-price="2000">Kathmandu ➔ Gulmi (Rs. 2,000)</option>
                     </select>
@@ -70,26 +71,31 @@
                     <input type="date" id="date" class="form-control" required>
                 </div>
 
-                <!-- Seat Selection Section -->
+                <!-- 16 Seat Layout -->
                 <div class="form-group">
-                    <label><i class="fa-solid fa-chair"></i> Select Seat Number(s)</label>
+                    <label><i class="fa-solid fa-chair"></i> Select Seat Number(s) [Total: 16 Seats]</label>
                     <div class="seat-grid" id="seatGrid">
-                        <!-- Seats 1 to 14 -->
-                        <div class="seat-btn" onclick="toggleSeat(this, 'Driver')" style="grid-column: span 3; background:#f1f5f9; cursor:default; color:#64748b;">🚘 Driver Seat</div>
+                        <div class="seat-btn driver">🚘 Driver</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 1')">1</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 2')">2</div>
+
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 3')">3</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 4')">4</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 5')">5</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 6')">6</div>
+
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 7')">7</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 8')">8</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 9')">9</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 10')">10</div>
+
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 11')">11</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 12')">12</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 13')">13</div>
                         <div class="seat-btn" onclick="toggleSeat(this, 'Seat 14')">14</div>
+
+                        <div class="seat-btn" style="grid-column: span 2;" onclick="toggleSeat(this, 'Seat 15')">15</div>
+                        <div class="seat-btn" style="grid-column: span 2;" onclick="toggleSeat(this, 'Seat 16')">16</div>
                     </div>
                     <input type="hidden" id="selectedSeatsInput" required>
                     <p style="font-size:12px; color:#666; margin-top:5px;">Selected Seats: <strong id="selectedSeatsText" style="color:var(--primary);">None</strong></p>
@@ -120,7 +126,7 @@
         
         <div class="footer">
             <p>Direct Booking Helpline: <strong>9749895042</strong></p>
-            <p>&copy; Gulmi Easy Travel EV Service. All rights reserved.</p>
+            <p>&copy; DHAN GC EASY TRAVEL BOOKING. All rights reserved.</p>
         </div>
     </div>
 
@@ -131,7 +137,7 @@
     const datePicker = document.getElementById('date');
     let selectedSeats = [];
 
-    // Advance date lock logic (Aaja block, Bholi bata open)
+    // Date Lock Logic: Today Blocked, Tomorrow Enabled
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const minDate = tomorrow.toISOString().split('T')[0];
@@ -140,11 +146,10 @@
     datePicker.value = minDate;
 
     datePicker.addEventListener('change', checkAvailability);
-    document.getElementById('route').addEventListener('change', checkAvailability);
     window.onload = checkAvailability;
 
     function toggleSeat(btn, seatNum) {
-        if (seatNum === 'Driver') return;
+        if (btn.classList.contains('booked')) return;
 
         if (selectedSeats.includes(seatNum)) {
             selectedSeats = selectedSeats.filter(s => s !== seatNum);
@@ -165,13 +170,10 @@
         noticeDiv.innerText = "Checking availability...";
         noticeDiv.style.color = "#666";
 
-        // Reset all seats first
+        // Reset all seats UI
         document.querySelectorAll('.seat-btn').forEach(btn => {
             if (!btn.classList.contains('driver')) {
                 btn.classList.remove('booked', 'selected');
-                btn.style.pointerEvents = 'auto';
-                btn.style.background = '#fff';
-                btn.style.color = '#000';
             }
         });
         selectedSeats = [];
@@ -181,16 +183,13 @@
         fetch(`${scriptURL}?date=${encodeURIComponent(datePicker.value)}&route=${encodeURIComponent(document.getElementById('route').value)}`)
             .then(res => res.json())
             .then(data => {
-                // Book ho chuke seats ko red/disabled banana
+                // Booked seats ko disable/grey out karna
                 if (data.bookedSeats && data.bookedSeats.length > 0) {
                     data.bookedSeats.forEach(seatNum => {
                         const seatBtns = document.querySelectorAll('.seat-btn');
                         seatBtns.forEach(btn => {
                             if (btn.innerText.trim() === seatNum.replace('Seat ', '').trim()) {
                                 btn.classList.add('booked');
-                                btn.style.background = '#e2e8f0';
-                                btn.style.color = '#a0aec0';
-                                btn.style.pointerEvents = 'none'; // Unclickable
                             }
                         });
                     });
@@ -232,7 +231,7 @@
         const totalFare = document.getElementById('totalFare').innerText;
 
         if (selectedSeats.length === 0) {
-            alert('Kripaya kamti ma pani 1 वटा seat select garnuhos!');
+            alert('Kripaya kamti ma pani 1 seat select garnuhos!');
             return;
         }
 
@@ -240,7 +239,7 @@
         fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { method: 'POST' });
 
         // WhatsApp Redirect
-        const msg = `*GULMI EASY TRAVEL - TICKET BOOKING*%0A━━━━━━━━━━━━━━━━━━%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🚌 *Route:* ${route}%0A📅 *Date:* ${date}%0A💺 *Seat No(s):* ${seats}%0A📍 *Pickup:* ${pickup}%0A💰 *Total:* ${totalFare}%0A━━━━━━━━━━━━━━━━━━%0AMaile payment QR tirera screenshot pathaudai chu.`;
+        const msg = `*DHAN GC EASY TRAVEL BOOKING*%0A*GULMI YATAYAT*%0A━━━━━━━━━━━━━━━━━━%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🚌 *Route:* ${route}%0A📅 *Date:* ${date}%0A💺 *Seat No(s):* ${seats}%0A📍 *Pickup:* ${pickup}%0A💰 *Total:* ${totalFare}%0A━━━━━━━━━━━━━━━━━━%0AMaile payment QR tirera screenshot pathaudai chu.`;
         window.open(`https://wa.me/9779749895042?text=${msg}`, '_blank');
     }
 </script>
