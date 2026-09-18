@@ -165,9 +165,37 @@
         noticeDiv.innerText = "Checking availability...";
         noticeDiv.style.color = "#666";
 
+        // Reset all seats first
+        document.querySelectorAll('.seat-btn').forEach(btn => {
+            if (!btn.classList.contains('driver')) {
+                btn.classList.remove('booked', 'selected');
+                btn.style.pointerEvents = 'auto';
+                btn.style.background = '#fff';
+                btn.style.color = '#000';
+            }
+        });
+        selectedSeats = [];
+        document.getElementById('selectedSeatsText').innerText = 'None';
+        calculateFare();
+
         fetch(`${scriptURL}?date=${encodeURIComponent(datePicker.value)}&route=${encodeURIComponent(document.getElementById('route').value)}`)
             .then(res => res.json())
             .then(data => {
+                // Book ho chuke seats ko red/disabled banana
+                if (data.bookedSeats && data.bookedSeats.length > 0) {
+                    data.bookedSeats.forEach(seatNum => {
+                        const seatBtns = document.querySelectorAll('.seat-btn');
+                        seatBtns.forEach(btn => {
+                            if (btn.innerText.trim() === seatNum.replace('Seat ', '').trim()) {
+                                btn.classList.add('booked');
+                                btn.style.background = '#e2e8f0';
+                                btn.style.color = '#a0aec0';
+                                btn.style.pointerEvents = 'none'; // Unclickable
+                            }
+                        });
+                    });
+                }
+
                 if (data.availableSeats <= 0) {
                     noticeDiv.innerText = "❌ SOLD OUT! Tyo date ma seat khali chhaina.";
                     noticeDiv.style.color = "red";
