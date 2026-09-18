@@ -28,7 +28,7 @@
         .seat-btn:hover { border-color: var(--primary); color: var(--primary); }
         .seat-btn.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
         .seat-btn.driver { grid-column: span 2; background:#f1f5f9; cursor:default; color:#64748b; border-color:#e2e8f0; }
-        .seat-btn.booked { background: #e2e8f0 !important; color: #a0aec0 !important; border-color: #cbd5e0 !important; cursor: not-allowed !important; pointer-events: none !important; }
+        .seat-btn.booked { background: #fee2e2 !important; color: #ef4444 !important; border-color: #fca5a5 !important; cursor: not-allowed !important; pointer-events: none !important; opacity: 0.7; }
 
         .fare-box { background: #f0fdf4; border: 1px dashed var(--primary); padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-weight: 600; }
         .qr-card { text-align: center; background: #fafafa; border: 1.5px solid #edf2f7; padding: 12px; border-radius: 12px; margin-bottom: 18px; }
@@ -170,7 +170,7 @@
         noticeDiv.innerText = "Checking availability...";
         noticeDiv.style.color = "#666";
 
-        // Reset all seats UI
+        // Reset UI seats
         document.querySelectorAll('.seat-btn').forEach(btn => {
             if (!btn.classList.contains('driver')) {
                 btn.classList.remove('booked', 'selected');
@@ -183,12 +183,13 @@
         fetch(`${scriptURL}?date=${encodeURIComponent(datePicker.value)}&route=${encodeURIComponent(document.getElementById('route').value)}`)
             .then(res => res.json())
             .then(data => {
-                // Booked seats ko disable/grey out karna
                 if (data.bookedSeats && data.bookedSeats.length > 0) {
                     data.bookedSeats.forEach(seatNum => {
                         const seatBtns = document.querySelectorAll('.seat-btn');
                         seatBtns.forEach(btn => {
-                            if (btn.innerText.trim() === seatNum.replace('Seat ', '').trim()) {
+                            var btnNum = btn.innerText.trim();
+                            var searchNum = seatNum.replace(/Seat\s*/i, '').trim();
+                            if (btnNum === searchNum) {
                                 btn.classList.add('booked');
                             }
                         });
@@ -202,7 +203,9 @@
                     noticeDiv.innerText = `✅ Availability: ${data.availableSeats} seats baki chhan!`;
                     noticeDiv.style.color = "green";
                 }
-            }).catch(() => noticeDiv.innerText = "");
+            }).catch(() => {
+                noticeDiv.innerText = "";
+            });
     }
 
     function calculateFare() {
@@ -235,10 +238,10 @@
             return;
         }
 
-        // Auto Entry to Google Sheets
+        // Save to Google Sheet
         fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { method: 'POST' });
 
-        // WhatsApp Redirect
+        // Redirect to WhatsApp
         const msg = `*DHAN GC EASY TRAVEL BOOKING*%0A*GULMI YATAYAT*%0A━━━━━━━━━━━━━━━━━━%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🚌 *Route:* ${route}%0A📅 *Date:* ${date}%0A💺 *Seat No(s):* ${seats}%0A📍 *Pickup:* ${pickup}%0A💰 *Total:* ${totalFare}%0A━━━━━━━━━━━━━━━━━━%0AMaile payment QR tirera screenshot pathaudai chu.`;
         window.open(`https://wa.me/9779749895042?text=${msg}`, '_blank');
     }
