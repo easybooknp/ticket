@@ -33,6 +33,11 @@
         .fare-box { background: #f0fdf4; border: 1px dashed var(--primary); padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-weight: 600; }
         .qr-card { text-align: center; background: #fafafa; border: 1.5px solid #edf2f7; padding: 12px; border-radius: 12px; margin-bottom: 18px; }
         .qr-card img { width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd; background: #fff; padding: 4px; }
+        
+        /* Payment Notice Style */
+        .payment-notice { background: #fff5f5; border: 1px solid #feb2b2; padding: 12px; border-radius: 10px; margin-bottom: 18px; font-size: 13px; color: #c53030; line-height: 1.5; font-weight: 500; }
+        .payment-notice i { margin-right: 6px; font-size: 14px; }
+
         .btn-submit { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: #fff; padding: 14px; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: center; gap: 8px; }
         .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
         .call-float-btn { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
@@ -118,6 +123,12 @@
                     <img src="qr.jpg" alt="Payment QR Code" onerror="this.src='https://via.placeholder.com/150?text=Upload+qr.jpg'">
                 </div>
                 
+                <!-- Nepali Payment Notice -->
+                <div class="payment-notice">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    कृपया भुक्तानी गरेको स्क्रिनसट ५ मिनेट भित्र म्यासेजमा पठाउनु होला अन्यथा तपाइँको सिट रद्द हुनेछ र भुक्तानी गर्नु अघि QR सम्बन्धित व्यक्ति धन बहादुर घर्ती को छ/छैन चेक गर्नु होला।
+                </div>
+
                 <button type="submit" id="submitBtn" class="btn-submit" disabled>
                     <i class="fa-brands fa-whatsapp"></i> Confirm Booking via WhatsApp
                 </button>
@@ -239,14 +250,14 @@
         }
 
         // Save to Google Sheet
-fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { 
-    method: 'POST',
-    mode: 'no-cors'
-});
+        fetch(`${scriptURL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&route=${encodeURIComponent(route)}&date=${encodeURIComponent(date)}&seats=${encodeURIComponent(seats)}&pickup=${encodeURIComponent(pickup)}&totalFare=${encodeURIComponent(totalFare)}`, { 
+            method: 'POST',
+            mode: 'no-cors'
+        });
 
         // Redirect to WhatsApp
         const msg = `*DHAN GC EASY TRAVEL BOOKING*%0A*GULMI YATAYAT*%0A━━━━━━━━━━━━━━━━━━%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🚌 *Route:* ${route}%0A📅 *Date:* ${date}%0A💺 *Seat No(s):* ${seats}%0A📍 *Pickup:* ${pickup}%0A💰 *Total:* ${totalFare}%0A━━━━━━━━━━━━━━━━━━%0AMaile payment QR tirera screenshot pathaudai chu.`;
-        window.open(`https://wa.me/9779749895042?text=${msg}`, '_blank');
+        window.open(`https://wa.me/9779828361658?text=${msg}`, '_blank');
     }
 </script>
 </body>
